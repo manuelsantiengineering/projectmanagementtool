@@ -29,7 +29,7 @@ public class UserValidator implements Validator {
 		
 		if(user.getConfirmPassword() == null || user.getConfirmPassword().contentEquals("")) {
 			user.setConfirmPassword("");;
-			errors.rejectValue("confirmPassword", "Length", "Password is required.");
+			errors.rejectValue("confirmPassword", "Length", "Confirmation password is required.");
 		}else if(!user.getPassword().contentEquals(user.getConfirmPassword())) {
 			errors.rejectValue("confirmPassword", "Match", "Passwords must match.");
 		}		
