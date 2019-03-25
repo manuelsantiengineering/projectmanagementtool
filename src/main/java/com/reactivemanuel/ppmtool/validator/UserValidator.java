@@ -32,8 +32,10 @@ public class UserValidator implements Validator {
 //		}else if(!user.getPassword().contentEquals(user.getConfirmPassword())) {
 //			errors.rejectValue("confirmPassword", "Match", "Passwords must match.");
 //		}		
-		
-		if(user.getPassword() != null) {
+		if(user.getConfirmPassword() == null) {
+			user.setConfirmPassword("");;
+			errors.rejectValue("confirmPassword", "Length", "Confirmation password is required.");
+		}else if(user.getPassword() != null) {
 		
 			if(user.getPassword().length() < 6) {
 				errors.rejectValue("password", "Length", "Password must be at least 6 characters.");
@@ -41,12 +43,15 @@ public class UserValidator implements Validator {
 		
 			if(user.getConfirmPassword() == null) {
 				user.setConfirmPassword("");;
-				errors.rejectValue("confirmPassword", "Length", "Password is required.");
+				errors.rejectValue("confirmPassword", "Length", "Confirmation password is required.");
 			}else if(!user.getPassword().contentEquals(user.getConfirmPassword())) {
 				errors.rejectValue("confirmPassword", "Match", "Passwords must match.");
 			}		
 		}
-		
+//		if(user.getConfirmPassword() == null) {
+//			user.setConfirmPassword("");;
+//			errors.rejectValue("confirmPassword", "Length", "Confirmation password is required.");
+//		}
 		
 	}
 
