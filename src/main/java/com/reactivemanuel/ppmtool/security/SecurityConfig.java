@@ -17,7 +17,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.reactivemanuel.ppmtool.services.CustomUserDetailsService;
 
-import static com.reactivemanuel.ppmtool.security.SecurityConstants.SIGNUP_UP_URLS;
+import static com.reactivemanuel.ppmtool.security.SecurityConstants.SIGN_UP_URLS;
 //import static com.reactivemanuel.ppmtool.security.SecurityConstants.H2_URL;
 
 @Configuration
@@ -76,7 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 "/**/*.css",
                 "/**/*.js"
         ).permitAll()
-        .antMatchers(SIGNUP_UP_URLS).permitAll()
+        .antMatchers(SIGN_UP_URLS).permitAll()
 //        .antMatchers(H2_URL).permitAll()
         .anyRequest().authenticated();
 		
