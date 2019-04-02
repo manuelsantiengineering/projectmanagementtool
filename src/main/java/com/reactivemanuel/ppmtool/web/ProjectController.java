@@ -53,6 +53,11 @@ public class ProjectController {
 		return projectService.findAllProjects(principal.getName());		
 	}
 	
+	@GetMapping("/test")
+	public String getTest(){
+		return ("Test");		
+	}
+	
 	@GetMapping("/{projectIdentifier}")
 	public ResponseEntity<?> getProjectByIdentifier(@PathVariable String projectIdentifier, Principal principal){
 		Project project = projectService.findProjectByIdentifier(projectIdentifier.toUpperCase(), principal.getName());
