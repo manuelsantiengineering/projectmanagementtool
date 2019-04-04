@@ -64,6 +64,24 @@ public class Project {
 		super();
 	}
 	
+	public Project(
+			@NotBlank(message = "Project name is required.") 
+			String projectName,
+			@NotBlank(message = "Project identified is required.") 
+			@Size(min = 3, max = 6, message = "Please use 3 to 6 characters.") 
+			String projectIdentifier,
+			@NotBlank(message = "Project description is required.") 
+			String description, 
+			Date start_date,
+			Date end_date) {
+		super();
+		this.projectName = projectName;
+		this.projectIdentifier = projectIdentifier;
+		this.description = description;
+		this.start_date = start_date;
+		this.end_date = end_date;
+	}
+
 	public Long getId() {
 		return id;
 	}
